@@ -1,0 +1,7 @@
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\bin\Debug\Problema_07.exe.config
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\bin\Debug\Problema_07.exe
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\bin\Debug\Problema_07.pdb
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\obj\Debug\Problema_07.csproj.AssemblyReference.cache
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\obj\Debug\Problema_07.csproj.CoreCompileInputs.cache
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\obj\Debug\Problema_07.exe
+D:\Cibertec\ciclo III\Programacion orientada a objetos I\Tarea01_solution_C#\POO1_Tarea01\Problema_07\obj\Debug\Problema_07.pdb

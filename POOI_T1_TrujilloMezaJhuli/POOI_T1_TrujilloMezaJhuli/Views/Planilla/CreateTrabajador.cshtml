@@ -1,0 +1,80 @@
+﻿@model POOI_T1_TrujilloMezaJhuli.Models.Trabajador
+
+@{
+    ViewBag.Title = "CreateTrabajador";
+}
+
+<h2>CreateTrabajador</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Trabajador</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.dniTrab, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dniTrab, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dniTrab, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.apeTrab, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.apeTrab, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.apeTrab, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nomTrab, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nomTrab, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nomTrab, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecContrato, htmlAttributes: new { @class = "control-label col-md-2" })<span>(mm/dd/yyyy)</span> 
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecContrato, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fecContrato, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.categoriaTrab, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.categoriaTrab, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.categoriaTrab, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default btn-secondary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Index", "Index")
+</div>
+
+<hr />
+<h3>Datos</h3>
+<p>DNI            : @ViewBag.dniTrab</p>
+<p>Apellido       : @ViewBag.apeTrab</p>
+<p>Nombre         : @ViewBag.nomTrab</p>
+<p>Fecha Contrato : @ViewBag.fecContrato</p>
+<p>Categoria      : @ViewBag.categoriaTrab</p>
+<hr />
+<h3>Resultados</h3>
+<p>Básico  : @ViewBag.Basico</p>
+<p>Bonificación  : @ViewBag.Bonificacion</p>
+<p>Monto   : @ViewBag.Monto</p>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO1_Tarea04_MVC_ADONET", "POO1_Tarea04_MVC_Web\POO1_Tarea04_MVC_ADONET.csproj", "{8A576307-13DD-4955-B4E4-3E3FC80E8EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO1_Tarea04_MVC_ENTITY", "POO1_Tarea04_MVC_ENTITY\POO1_Tarea04_MVC_ENTITY.csproj", "{5BDF204A-494D-4397-B7CA-214E1BCDB206}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A576307-13DD-4955-B4E4-3E3FC80E8EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A576307-13DD-4955-B4E4-3E3FC80E8EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A576307-13DD-4955-B4E4-3E3FC80E8EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A576307-13DD-4955-B4E4-3E3FC80E8EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDF204A-494D-4397-B7CA-214E1BCDB206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDF204A-494D-4397-B7CA-214E1BCDB206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDF204A-494D-4397-B7CA-214E1BCDB206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDF204A-494D-4397-B7CA-214E1BCDB206}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00086EE1-3C82-452B-A9C8-219A6FED8533}
+	EndGlobalSection
+EndGlobal

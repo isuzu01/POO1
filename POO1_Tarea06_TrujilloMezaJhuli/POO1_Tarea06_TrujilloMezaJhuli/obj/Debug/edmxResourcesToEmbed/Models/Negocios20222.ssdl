@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Negocios2022Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_categorias">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" />
+    <Property Name="NombreCategoria" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="tb_clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="NombreCia" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="idpais" Type="char" MaxLength="3" />
+    <Property Name="Telefono" Type="varchar" MaxLength="24" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_empleados">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="ApeEmpleado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NomEmpleado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FecNac" Type="datetime" Nullable="false" />
+    <Property Name="DirEmpleado" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="idDistrito" Type="int" />
+    <Property Name="fonoEmpleado" Type="varchar" MaxLength="15" />
+    <Property Name="idCargo" Type="int" />
+    <Property Name="FecContrata" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_paises">
+    <Key>
+      <PropertyRef Name="Idpais" />
+    </Key>
+    <Property Name="Idpais" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="NombrePais" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_pedidoscabe">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="int" Nullable="false" />
+    <Property Name="IdCliente" Type="varchar" MaxLength="5" />
+    <Property Name="IdEmpleado" Type="int" />
+    <Property Name="FechaPedido" Type="datetime" Nullable="false" />
+    <Property Name="FechaEntrega" Type="datetime" />
+    <Property Name="FechaEnvio" Type="datetime" />
+    <Property Name="Envio" Type="char" MaxLength="1" />
+    <Property Name="Cargo" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Destinatario" Type="varchar" MaxLength="40" />
+    <Property Name="DireccionDestinatario" Type="varchar" MaxLength="60" />
+    <Property Name="CiudadDestinatario" Type="varchar" MaxLength="15" />
+    <Property Name="RegionDestinatario" Type="varchar" MaxLength="15" />
+    <Property Name="CodPostalDestinatario" Type="varchar" MaxLength="10" />
+    <Property Name="PaisDestinatario" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Negocios2022.dbo.tb_pedidosdeta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tb_pedidosdeta">
+    <Key>
+      <PropertyRef Name="PrecioUnidad" />
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Descuento" />
+    </Key>
+    <Property Name="IdPedido" Type="int" />
+    <Property Name="IdProducto" Type="int" />
+    <Property Name="PrecioUnidad" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Cantidad" Type="smallint" Nullable="false" />
+    <Property Name="Descuento" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="NombreProducto" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdCategoria" Type="int" />
+    <Property Name="umedida" Type="varchar" MaxLength="100" />
+    <Property Name="PrecioUnidad" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UnidadesEnExistencia" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_proveedores">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" Nullable="false" />
+    <Property Name="NombreCia" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="NombreContacto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CargoContacto" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="idpais" Type="char" MaxLength="3" />
+    <Property Name="Telefono" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="Fax" Type="varchar" MaxLength="24" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tb_client__idpai__3B75D760">
+    <End Role="tb_paises" Type="Self.tb_paises" Multiplicity="0..1" />
+    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_paises">
+        <PropertyRef Name="Idpais" />
+      </Principal>
+      <Dependent Role="tb_clientes">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdCli__46E78A0C">
+    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="tb_pedidoscabe">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdEmp__47DBAE45">
+    <End Role="tb_empleados" Type="Self.tb_empleados" Multiplicity="0..1" />
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empleados">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="tb_pedidoscabe">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdPed__4BAC3F29">
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="0..1" />
+    <End Role="tb_pedidosdeta" Type="Self.tb_pedidosdeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pedidoscabe">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="tb_pedidosdeta">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdPro__4CA06362">
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="0..1" />
+    <End Role="tb_pedidosdeta" Type="Self.tb_pedidosdeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="tb_pedidosdeta">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_produc__IdCat__4222D4EF">
+    <End Role="tb_categorias" Type="Self.tb_categorias" Multiplicity="0..1" />
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_categorias">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="tb_productos">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_produc__IdPro__412EB0B6">
+    <End Role="tb_proveedores" Type="Self.tb_proveedores" Multiplicity="0..1" />
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_proveedores">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="tb_productos">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_provee__idpai__3E52440B">
+    <End Role="tb_paises" Type="Self.tb_paises" Multiplicity="0..1" />
+    <End Role="tb_proveedores" Type="Self.tb_proveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_paises">
+        <PropertyRef Name="Idpais" />
+      </Principal>
+      <Dependent Role="tb_proveedores">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_ProductoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Negocios2022ModelStoreContainer">
+    <EntitySet Name="tb_categorias" EntityType="Self.tb_categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_empleados" EntityType="Self.tb_empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_paises" EntityType="Self.tb_paises" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_pedidoscabe" EntityType="Self.tb_pedidoscabe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_productos" EntityType="Self.tb_productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_proveedores" EntityType="Self.tb_proveedores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_pedidosdeta" EntityType="Self.tb_pedidosdeta" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tb_pedidosdeta].[IdPedido] AS [IdPedido], 
+    [tb_pedidosdeta].[IdProducto] AS [IdProducto], 
+    [tb_pedidosdeta].[PrecioUnidad] AS [PrecioUnidad], 
+    [tb_pedidosdeta].[Cantidad] AS [Cantidad], 
+    [tb_pedidosdeta].[Descuento] AS [Descuento]
+    FROM [dbo].[tb_pedidosdeta] AS [tb_pedidosdeta]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tb_client__idpai__3B75D760" Association="Self.FK__tb_client__idpai__3B75D760">
+      <End Role="tb_paises" EntitySet="tb_paises" />
+      <End Role="tb_clientes" EntitySet="tb_clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdCli__46E78A0C" Association="Self.FK__tb_pedido__IdCli__46E78A0C">
+      <End Role="tb_clientes" EntitySet="tb_clientes" />
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdEmp__47DBAE45" Association="Self.FK__tb_pedido__IdEmp__47DBAE45">
+      <End Role="tb_empleados" EntitySet="tb_empleados" />
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdPed__4BAC3F29" Association="Self.FK__tb_pedido__IdPed__4BAC3F29">
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+      <End Role="tb_pedidosdeta" EntitySet="tb_pedidosdeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdPro__4CA06362" Association="Self.FK__tb_pedido__IdPro__4CA06362">
+      <End Role="tb_productos" EntitySet="tb_productos" />
+      <End Role="tb_pedidosdeta" EntitySet="tb_pedidosdeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_produc__IdCat__4222D4EF" Association="Self.FK__tb_produc__IdCat__4222D4EF">
+      <End Role="tb_categorias" EntitySet="tb_categorias" />
+      <End Role="tb_productos" EntitySet="tb_productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_produc__IdPro__412EB0B6" Association="Self.FK__tb_produc__IdPro__412EB0B6">
+      <End Role="tb_proveedores" EntitySet="tb_proveedores" />
+      <End Role="tb_productos" EntitySet="tb_productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_provee__idpai__3E52440B" Association="Self.FK__tb_provee__idpai__3E52440B">
+      <End Role="tb_paises" EntitySet="tb_paises" />
+      <End Role="tb_proveedores" EntitySet="tb_proveedores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

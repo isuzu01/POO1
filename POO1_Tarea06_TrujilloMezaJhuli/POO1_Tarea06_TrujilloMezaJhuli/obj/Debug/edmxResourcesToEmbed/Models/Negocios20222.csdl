@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Negocios2022Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_categorias">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <Property Name="NombreCategoria" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_productos" Relationship="Self.FK__tb_produc__IdCat__4222D4EF" FromRole="tb_categorias" ToRole="tb_productos" />
+  </EntityType>
+  <EntityType Name="tb_clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreCia" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idpais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tb_paises" Relationship="Self.FK__tb_client__idpai__3B75D760" FromRole="tb_clientes" ToRole="tb_paises" />
+    <NavigationProperty Name="tb_pedidoscabe" Relationship="Self.FK__tb_pedido__IdCli__46E78A0C" FromRole="tb_clientes" ToRole="tb_pedidoscabe" />
+  </EntityType>
+  <EntityType Name="tb_empleados">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="ApeEmpleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomEmpleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FecNac" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DirEmpleado" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idDistrito" Type="Int32" />
+    <Property Name="fonoEmpleado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="idCargo" Type="Int32" />
+    <Property Name="FecContrata" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tb_pedidoscabe" Relationship="Self.FK__tb_pedido__IdEmp__47DBAE45" FromRole="tb_empleados" ToRole="tb_pedidoscabe" />
+  </EntityType>
+  <EntityType Name="tb_paises">
+    <Key>
+      <PropertyRef Name="Idpais" />
+    </Key>
+    <Property Name="Idpais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NombrePais" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tb_clientes" Relationship="Self.FK__tb_client__idpai__3B75D760" FromRole="tb_paises" ToRole="tb_clientes" />
+    <NavigationProperty Name="tb_proveedores" Relationship="Self.FK__tb_provee__idpai__3E52440B" FromRole="tb_paises" ToRole="tb_proveedores" />
+  </EntityType>
+  <EntityType Name="tb_pedidoscabe">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" Nullable="false" />
+    <Property Name="IdCliente" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="IdEmpleado" Type="Int32" />
+    <Property Name="FechaPedido" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaEntrega" Type="DateTime" Precision="3" />
+    <Property Name="FechaEnvio" Type="DateTime" Precision="3" />
+    <Property Name="Envio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Cargo" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="Destinatario" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DireccionDestinatario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CiudadDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RegionDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CodPostalDestinatario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PaisDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_clientes" Relationship="Self.FK__tb_pedido__IdCli__46E78A0C" FromRole="tb_pedidoscabe" ToRole="tb_clientes" />
+    <NavigationProperty Name="tb_empleados" Relationship="Self.FK__tb_pedido__IdEmp__47DBAE45" FromRole="tb_pedidoscabe" ToRole="tb_empleados" />
+    <NavigationProperty Name="tb_pedidosdeta" Relationship="Self.FK__tb_pedido__IdPed__4BAC3F29" FromRole="tb_pedidoscabe" ToRole="tb_pedidosdeta" />
+  </EntityType>
+  <EntityType Name="tb_productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="NombreProducto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int32" />
+    <Property Name="IdCategoria" Type="Int32" />
+    <Property Name="umedida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PrecioUnidad" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UnidadesEnExistencia" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="tb_categorias" Relationship="Self.FK__tb_produc__IdCat__4222D4EF" FromRole="tb_productos" ToRole="tb_categorias" />
+    <NavigationProperty Name="tb_pedidosdeta" Relationship="Self.FK__tb_pedido__IdPro__4CA06362" FromRole="tb_productos" ToRole="tb_pedidosdeta" />
+    <NavigationProperty Name="tb_proveedores" Relationship="Self.FK__tb_produc__IdPro__412EB0B6" FromRole="tb_productos" ToRole="tb_proveedores" />
+  </EntityType>
+  <EntityType Name="tb_proveedores">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+    <Property Name="NombreCia" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CargoContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idpais" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tb_paises" Relationship="Self.FK__tb_provee__idpai__3E52440B" FromRole="tb_proveedores" ToRole="tb_paises" />
+    <NavigationProperty Name="tb_productos" Relationship="Self.FK__tb_produc__IdPro__412EB0B6" FromRole="tb_proveedores" ToRole="tb_productos" />
+  </EntityType>
+  <EntityType Name="tb_pedidosdeta">
+    <Key>
+      <PropertyRef Name="PrecioUnidad" />
+      <PropertyRef Name="Cantidad" />
+      <PropertyRef Name="Descuento" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" />
+    <Property Name="IdProducto" Type="Int32" />
+    <Property Name="PrecioUnidad" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Cantidad" Type="Int16" Nullable="false" />
+    <Property Name="Descuento" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tb_pedidoscabe" Relationship="Self.FK__tb_pedido__IdPed__4BAC3F29" FromRole="tb_pedidosdeta" ToRole="tb_pedidoscabe" />
+    <NavigationProperty Name="tb_productos" Relationship="Self.FK__tb_pedido__IdPro__4CA06362" FromRole="tb_pedidosdeta" ToRole="tb_productos" />
+  </EntityType>
+  <Association Name="FK__tb_produc__IdCat__4222D4EF">
+    <End Role="tb_categorias" Type="Self.tb_categorias" Multiplicity="0..1" />
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_categorias">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="tb_productos">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_client__idpai__3B75D760">
+    <End Role="tb_paises" Type="Self.tb_paises" Multiplicity="0..1" />
+    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_paises">
+        <PropertyRef Name="Idpais" />
+      </Principal>
+      <Dependent Role="tb_clientes">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdCli__46E78A0C">
+    <End Role="tb_clientes" Type="Self.tb_clientes" Multiplicity="0..1" />
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="tb_pedidoscabe">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdEmp__47DBAE45">
+    <End Role="tb_empleados" Type="Self.tb_empleados" Multiplicity="0..1" />
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_empleados">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="tb_pedidoscabe">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_provee__idpai__3E52440B">
+    <End Role="tb_paises" Type="Self.tb_paises" Multiplicity="0..1" />
+    <End Role="tb_proveedores" Type="Self.tb_proveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_paises">
+        <PropertyRef Name="Idpais" />
+      </Principal>
+      <Dependent Role="tb_proveedores">
+        <PropertyRef Name="idpais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdPed__4BAC3F29">
+    <End Role="tb_pedidoscabe" Type="Self.tb_pedidoscabe" Multiplicity="0..1" />
+    <End Role="tb_pedidosdeta" Type="Self.tb_pedidosdeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pedidoscabe">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="tb_pedidosdeta">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_pedido__IdPro__4CA06362">
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="0..1" />
+    <End Role="tb_pedidosdeta" Type="Self.tb_pedidosdeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="tb_pedidosdeta">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_produc__IdPro__412EB0B6">
+    <End Role="tb_proveedores" Type="Self.tb_proveedores" Multiplicity="0..1" />
+    <End Role="tb_productos" Type="Self.tb_productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_proveedores">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="tb_productos">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Negocios2022Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_categorias" EntityType="Self.tb_categorias" />
+    <EntitySet Name="tb_clientes" EntityType="Self.tb_clientes" />
+    <EntitySet Name="tb_empleados" EntityType="Self.tb_empleados" />
+    <EntitySet Name="tb_paises" EntityType="Self.tb_paises" />
+    <EntitySet Name="tb_pedidoscabe" EntityType="Self.tb_pedidoscabe" />
+    <EntitySet Name="tb_productos" EntityType="Self.tb_productos" />
+    <EntitySet Name="tb_proveedores" EntityType="Self.tb_proveedores" />
+    <EntitySet Name="tb_pedidosdeta" EntityType="Self.tb_pedidosdeta" />
+    <AssociationSet Name="FK__tb_produc__IdCat__4222D4EF" Association="Self.FK__tb_produc__IdCat__4222D4EF">
+      <End Role="tb_categorias" EntitySet="tb_categorias" />
+      <End Role="tb_productos" EntitySet="tb_productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_client__idpai__3B75D760" Association="Self.FK__tb_client__idpai__3B75D760">
+      <End Role="tb_paises" EntitySet="tb_paises" />
+      <End Role="tb_clientes" EntitySet="tb_clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdCli__46E78A0C" Association="Self.FK__tb_pedido__IdCli__46E78A0C">
+      <End Role="tb_clientes" EntitySet="tb_clientes" />
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdEmp__47DBAE45" Association="Self.FK__tb_pedido__IdEmp__47DBAE45">
+      <End Role="tb_empleados" EntitySet="tb_empleados" />
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_provee__idpai__3E52440B" Association="Self.FK__tb_provee__idpai__3E52440B">
+      <End Role="tb_paises" EntitySet="tb_paises" />
+      <End Role="tb_proveedores" EntitySet="tb_proveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdPed__4BAC3F29" Association="Self.FK__tb_pedido__IdPed__4BAC3F29">
+      <End Role="tb_pedidoscabe" EntitySet="tb_pedidoscabe" />
+      <End Role="tb_pedidosdeta" EntitySet="tb_pedidosdeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_pedido__IdPro__4CA06362" Association="Self.FK__tb_pedido__IdPro__4CA06362">
+      <End Role="tb_productos" EntitySet="tb_productos" />
+      <End Role="tb_pedidosdeta" EntitySet="tb_pedidosdeta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_produc__IdPro__412EB0B6" Association="Self.FK__tb_produc__IdPro__412EB0B6">
+      <End Role="tb_proveedores" EntitySet="tb_proveedores" />
+      <End Role="tb_productos" EntitySet="tb_productos" />
+    </AssociationSet>
+    <FunctionImport Name="usp_ProductoListar" ReturnType="Collection(Negocios2022Model.usp_ProductoListar_Result)" />
+  </EntityContainer>
+  <ComplexType Name="usp_ProductoListar_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="PrecioUnidad" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="String" Name="NombreCategoria" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Proveedor" Nullable="false" MaxLength="40" />
+    <Property Type="Int16" Name="Stock" Nullable="false" />
+  </ComplexType>
+</Schema>

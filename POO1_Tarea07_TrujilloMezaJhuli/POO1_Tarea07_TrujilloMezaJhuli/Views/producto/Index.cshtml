@@ -1,0 +1,76 @@
+﻿@model IEnumerable<POO1_Tarea07_TrujilloMezaJhuli.Models.tb_productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Producto</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo Producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.umedida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioUnidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadesEnExistencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_categorias.NombreCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_proveedores.NombreCia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.umedida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioUnidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadesEnExistencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_categorias.NombreCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_proveedores.NombreCia)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }) |
+            @Html.ActionLink("Detalle", "Details", new { id = item.IdProducto }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })
+        </td>
+    </tr>
+}
+
+</table>
+
+@for(int i = 0; i < (int)ViewBag.pages; i++)
+            {
+                @Html.ActionLink((i + 1).ToString(), "Index",
+                    new {p = i},
+                    new {@class = "btn btn-primary"})
+            }

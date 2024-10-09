@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Negocios2022ModelStoreContainer" CdmEntityContainer="Negocios2022Entities">
+    <EntitySetMapping Name="tb_categorias">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_categorias">
+        <MappingFragment StoreEntitySet="tb_categorias">
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_clientes">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_clientes">
+        <MappingFragment StoreEntitySet="tb_clientes">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="NombreCia" ColumnName="NombreCia" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="idpais" ColumnName="idpais" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_empleados">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_empleados">
+        <MappingFragment StoreEntitySet="tb_empleados">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="ApeEmpleado" ColumnName="ApeEmpleado" />
+          <ScalarProperty Name="NomEmpleado" ColumnName="NomEmpleado" />
+          <ScalarProperty Name="FecNac" ColumnName="FecNac" />
+          <ScalarProperty Name="DirEmpleado" ColumnName="DirEmpleado" />
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+          <ScalarProperty Name="fonoEmpleado" ColumnName="fonoEmpleado" />
+          <ScalarProperty Name="idCargo" ColumnName="idCargo" />
+          <ScalarProperty Name="FecContrata" ColumnName="FecContrata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_paises">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_paises">
+        <MappingFragment StoreEntitySet="tb_paises">
+          <ScalarProperty Name="Idpais" ColumnName="Idpais" />
+          <ScalarProperty Name="NombrePais" ColumnName="NombrePais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_pedidoscabe">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_pedidoscabe">
+        <MappingFragment StoreEntitySet="tb_pedidoscabe">
+          <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+          <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+          <ScalarProperty Name="FechaEnvio" ColumnName="FechaEnvio" />
+          <ScalarProperty Name="Envio" ColumnName="Envio" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Destinatario" ColumnName="Destinatario" />
+          <ScalarProperty Name="DireccionDestinatario" ColumnName="DireccionDestinatario" />
+          <ScalarProperty Name="CiudadDestinatario" ColumnName="CiudadDestinatario" />
+          <ScalarProperty Name="RegionDestinatario" ColumnName="RegionDestinatario" />
+          <ScalarProperty Name="CodPostalDestinatario" ColumnName="CodPostalDestinatario" />
+          <ScalarProperty Name="PaisDestinatario" ColumnName="PaisDestinatario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_productos">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_productos">
+        <MappingFragment StoreEntitySet="tb_productos">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="umedida" ColumnName="umedida" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_proveedores">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_proveedores">
+        <MappingFragment StoreEntitySet="tb_proveedores">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="NombreCia" ColumnName="NombreCia" />
+          <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+          <ScalarProperty Name="CargoContacto" ColumnName="CargoContacto" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="idpais" ColumnName="idpais" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_pedidosdeta">
+      <EntityTypeMapping TypeName="Negocios2022Model.tb_pedidosdeta">
+        <MappingFragment StoreEntitySet="tb_pedidosdeta">
+          <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ProductoListar" FunctionName="Negocios2022Model.Store.usp_ProductoListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Negocios2022Model.usp_ProductoListar_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<POO1_Tarea08_TrujilloMezaJhuli.Entity.Producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Producto</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo Producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.umedida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioUnidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.umedida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioUnidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdProducto  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.IdProducto }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.IdProducto })
+        </td>
+    </tr>
+}
+
+</table>

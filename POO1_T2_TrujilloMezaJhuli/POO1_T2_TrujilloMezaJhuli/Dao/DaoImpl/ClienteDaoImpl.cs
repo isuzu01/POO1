@@ -123,8 +123,6 @@ namespace POO1_T2_TrujilloMezaJhuli.Dao.DaoImpl
             try
             {
                 con.Open();
-
-
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

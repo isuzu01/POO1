@@ -1,0 +1,63 @@
+﻿@model IEnumerable<POO1_T2_TrujilloMezaJhuli.Models.Mascota>
+
+@{
+    ViewBag.Title = "Reporte";
+}
+
+<h2>Reporte</h2>
+
+<p>
+    @Html.ActionLink("Agregar nueva Mascota", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Mascota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_Mascota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Cliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Mascota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Mascota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Raza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Cliente)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.Id_Mascota  }) |
+            @Html.ActionLink("Detalle", "Detalle", new {  id=item.Id_Mascota }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new {  id=item.Id_Mascota })
+        </td>
+    </tr>
+}
+
+</table>

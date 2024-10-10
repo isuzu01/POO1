@@ -122,13 +122,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MascotaController.cs" />
     <Compile Include="Dao\DaoImpl\ClienteDaoImpl.cs" />
+    <Compile Include="Dao\DaoImpl\MascotaDaoImpl.cs" />
     <Compile Include="Dao\IClienteDao.cs" />
+    <Compile Include="Dao\IMascotaDao.cs" />
     <Compile Include="DataBase\AccesoDB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Mascota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +191,11 @@
     <Content Include="Views\Cliente\Crear.cshtml" />
     <Content Include="Views\Cliente\Detalle.cshtml" />
     <Content Include="Views\Cliente\Eliminar.cshtml" />
+    <Content Include="Views\Mascota\Reporte.cshtml" />
+    <Content Include="Views\Mascota\Detalle.cshtml" />
+    <Content Include="Views\Mascota\Editar.cshtml" />
+    <Content Include="Views\Mascota\Crear.cshtml" />
+    <Content Include="Views\Mascota\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

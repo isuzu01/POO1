@@ -1,0 +1,72 @@
+﻿@model POO1_T2_TrujilloMezaJhuli.Models.Mascota
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas Seguro que quieres eliminar este registro?</h3>
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Mascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Mascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Mascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Mascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Cliente)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger my-3" /> |
+            @Html.ActionLink("Regresar a reporte", "Reporte")
+        </div>
+    }
+</div>

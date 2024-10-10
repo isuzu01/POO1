@@ -40,7 +40,7 @@ namespace POO1_T2_TrujilloMezaJhuli.Controllers
             IClienteDao daocli = new ClienteDaoImpl();
             ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente", mascota.Id_Cliente);
 
-            return View(dao.ObtenerMascota(id));
+            return View(mascota);
         }
         [HttpPost]
         public ActionResult Editar(Mascota m)
@@ -53,7 +53,7 @@ namespace POO1_T2_TrujilloMezaJhuli.Controllers
                     ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente", m.Id_Cliente);
 
                     IMascotaDao daom = new MascotaDaoImpl();
-                    daom.RegistrarMascota(m);
+                    daom.ActualizarMascota(m); // Llama al método de actualización en lugar de registrar
 
                     return RedirectToAction("Reporte");
                 }
@@ -64,7 +64,6 @@ namespace POO1_T2_TrujilloMezaJhuli.Controllers
             {
                 Debug.WriteLine("error");
                 return View(m);
-
             }
         }
 

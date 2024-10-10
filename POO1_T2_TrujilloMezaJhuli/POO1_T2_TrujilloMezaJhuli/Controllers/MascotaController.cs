@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,30 +37,72 @@ namespace POO1_T2_TrujilloMezaJhuli.Controllers
         {
             IMascotaDao dao = new MascotaDaoImpl();
             Mascota mascota = dao.ObtenerMascota(id);
-            return View(mascota);
+            IClienteDao daocli = new ClienteDaoImpl();
+            ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente", mascota.Id_Cliente);
+
+            return View(dao.ObtenerMascota(id));
         }
         [HttpPost]
         public ActionResult Editar(Mascota m)
         {
-            IMascotaDao dao = new MascotaDaoImpl();
-            var procesar = dao.ActualizarMascota(m);
-            return RedirectToAction("Reporte");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    IClienteDao daocli = new ClienteDaoImpl();
+                    ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente", m.Id_Cliente);
+
+                    IMascotaDao daom = new MascotaDaoImpl();
+                    daom.RegistrarMascota(m);
+
+                    return RedirectToAction("Reporte");
+                }
+
+                return View(m);
+            }
+            catch
+            {
+                Debug.WriteLine("error");
+                return View(m);
+
+            }
         }
 
         public ActionResult Crear()
         {
-            return View(new Mascota());
+            IClienteDao daocli = new ClienteDaoImpl();
+            ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente");
+
+            return View();
         }
 
         [HttpPost]
         public ActionResult Crear(Mascota m)
         {
-            IMascotaDao dao = new MascotaDaoImpl();
-            var procesar = dao.RegistrarMascota(m);
-            return RedirectToAction("Reporte");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    IClienteDao daocli = new ClienteDaoImpl();
+                    ViewBag.Clientes = new SelectList(daocli.ListarTodo(), "Id_Cliente", "Nombre_Cliente");
+
+                    IMascotaDao daom = new MascotaDaoImpl();
+                    daom.RegistrarMascota(m);
+
+                    return RedirectToAction("Reporte");
+                }
+
+                return View(m);
+            }
+            catch
+            {
+                Debug.WriteLine("error");
+                return View(m);
+
+            }
         }
 
-        public ActionResult Eliminar(int id)
+            public ActionResult Eliminar(int id)
         {
             IMascotaDao dao = new MascotaDaoImpl();
             Mascota mascota = dao.ObtenerMascota(id);

@@ -1,0 +1,66 @@
+﻿@model POO1_T2_TrujilloMezaJhuli.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Cliente de Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Registro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("editar Cliente", "Editar", new {  id = Model.Id_Cliente  }) |
+    @Html.ActionLink("Regresar a Reporte de Lista de clientes", "Reporte")
+</p>

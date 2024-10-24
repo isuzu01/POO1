@@ -1,0 +1,82 @@
+﻿@model POO1_EF_TrujilloMezaJhuli.Models.Transporte
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle de Transporte</h2>
+
+<div>
+    <h4>Transporte</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_transporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_transporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ruc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ruc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.id_transporte  }) |
+    @Html.ActionLink("Regresar a Reporte", "Reporte")
+</p>

@@ -1,0 +1,97 @@
+﻿@model POO1_EF_TrujilloMezaJhuli.Models.Transporte
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Transporte</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Transporte</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.id_transporte, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.id_transporte, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.id_transporte, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.ruc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ruc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ruc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.proveedor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.proveedor, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.proveedor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.direccion2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.direccion2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.direccion2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.correo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(model => model.contacto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contacto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.contacto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Acualizar" class="btn btn-dark" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a Reporte", "Reporte")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

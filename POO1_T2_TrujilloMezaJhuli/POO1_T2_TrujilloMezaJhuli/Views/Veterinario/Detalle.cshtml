@@ -1,0 +1,58 @@
+﻿@model POO1_T2_TrujilloMezaJhuli.Models.Veterinario
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle Veterinario</h2>
+
+<div>
+    <h4>Veterinario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Veterinario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Veterinario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Veterinario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Veterinario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especialidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new {  id = Model.Id_Veterinario  }) |
+    @Html.ActionLink("Regresar a Reporte de Veterinario", "Reporte")
+</p>

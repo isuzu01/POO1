@@ -1,0 +1,79 @@
+﻿@model IEnumerable<POO1_EF_TrujilloMezaJhuli_AdventureWorks.Models.OrdenVenta>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<form>
+
+    <div>
+        <label>Cliente</label>
+        @Html.TextBox("txtCliente", null, new { @class = "form-control", placeholder = "Ingrese el nombre del cliente" })
+    </div>
+    <label>Producto</label>
+    @Html.DropDownList("cboProducto", (SelectList)ViewBag.ComboProductos, "Seleccione", new { @class = "form-control" })
+
+    <label>Vendedor</label>
+    @Html.DropDownList("cboVendedor", (SelectList)ViewBag.ComboVendedores, "Seleccione", new { @class = "form-control" })
+
+
+    <button class="btn btn-primary my-3">Consultar</button>
+
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesOrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vendedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendedorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalDue)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesOrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendedorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDue)
+            </td>
+        </tr>
+    }
+
+</table>
